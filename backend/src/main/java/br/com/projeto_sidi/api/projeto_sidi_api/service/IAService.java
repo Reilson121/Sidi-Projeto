@@ -72,7 +72,7 @@ public class IAService {
 
             RestTemplate restTemplate = new RestTemplate();
 
-            String url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=" + chaveApi;
+            String url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=" + chaveApi;
 
             HttpHeaders cabecalhos = new HttpHeaders();
             cabecalhos.setContentType(MediaType.APPLICATION_JSON);
