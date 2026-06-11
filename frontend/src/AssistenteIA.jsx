@@ -16,7 +16,7 @@ export default function AssistenteIA() {
             setLoading(true);
 
             const response = await fetch(
-                "http://localhost:8080/ia",
+                "/ia",
                 {
                     method: "POST",
                     headers: {
