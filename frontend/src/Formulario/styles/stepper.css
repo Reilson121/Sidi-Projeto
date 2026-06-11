@@ -1,0 +1,56 @@
+.stepper-container {
+    width: 700px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* barra */
+.progress-bar {
+    height: 6px;
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+.progress {
+    height: 100%;
+    background: #2f6bff;
+    transition: 0.3s;
+}
+
+/* steps */
+.steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.step {
+    text-align: center;
+    flex: 1;
+    position: relative;
+}
+
+.circle {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ccc;
+    color: white;
+}
+
+.step.active .circle {
+    background: #2f6bff;
+}
+
+.step label {
+    font-size: 12px;
+    display: block;
+    margin-top: 5px;
+    color: #666;
+}

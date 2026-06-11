@@ -1,0 +1,130 @@
+/*PÁGINA*/
+
+.form-page {
+    min-height: 100vh;
+    background: #f5f6f8;
+    font-family: Arial, sans-serif;
+}
+
+
+/*HEADER*/
+
+.form-header {
+    width: 600px;
+    margin: 30px auto 20px auto;
+}
+
+.form-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 8px;
+}
+
+.form-subtitle {
+    color: #6b7280;
+    font-size: 15px;
+}
+
+
+/*CONTAINER*/
+
+.form-container {
+    width: 600px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 14px;
+    padding: 28px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+
+/*cards */
+
+.review-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    background: white;
+}
+
+.review-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 24px;
+}
+
+
+/*ITENS*/
+
+.review-item {
+    margin-bottom: 22px;
+}
+
+.review-item:last-child {
+    margin-bottom: 0;
+}
+
+.review-item span {
+    display: block;
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 6px;
+}
+
+.review-item strong {
+    font-size: 15px;
+    color: #111827;
+    font-weight: 600;
+}
+
+
+/*GPD*/
+
+.lgpd-box {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 16px;
+    color: #4b5563;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.form-button {
+    border: none;
+    border-radius: 10px;
+    padding: 12px 22px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.form-button-secondary {
+    background: #e5e7eb;
+    color: #111827;
+}
+
+.form-button-secondary:hover {
+    background: #d1d5db;
+}
+
+.form-button-primary {
+    background: #2563eb;
+    color: white;
+}
+
+.form-button-primary:hover {
+    background: #1d4ed8;
+}

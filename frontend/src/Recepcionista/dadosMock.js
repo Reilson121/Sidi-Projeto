@@ -1,0 +1,32 @@
+export const visitantesIniciais = [
+    {
+        id: 1,
+        codigo: "REG-2024-001",
+        visitante: "João Silva",
+        cpf: "123.456.789-00",
+        empresa: "Tech Corp",
+        horario: "10:00",
+        contato: "Carlos Santos",
+        status: "aguardando",
+    },
+    {
+        id: 2,
+        codigo: "REG-2024-002",
+        visitante: "Ana Costa",
+        cpf: "987.654.321-00",
+        empresa: "Digital Solutions",
+        horario: "09:00",
+        contato: "Mariana Lima",
+        status: "atrasado",
+    },
+    {
+        id: 3,
+        codigo: "REG-2024-003",
+        visitante: "Maria Oliveira",
+        cpf: "741.852.963-00",
+        empresa: "Solutions Inc",
+        horario: "14:00",
+        contato: "Ana Costa",
+        status: "presente",
+    },
+];

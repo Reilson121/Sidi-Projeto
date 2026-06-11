@@ -1,0 +1,125 @@
+/* =========================
+   Página
+========================= */
+
+.assistente-container {
+    min-height: 100vh;
+    background: #f5f5f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =========================
+   Card
+========================= */
+
+.assistente-card {
+    width: 100%;
+    max-width: 560px;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+/* =========================
+   Ícone
+========================= */
+
+.assistente-icon {
+    width: 72px;
+    height: 72px;
+    background: linear-gradient(135deg, #7c3aed, #a855f7);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    color: white;
+}
+
+/* =========================
+   Título e descrição
+========================= */
+
+.assistente-card h2 {
+    font-size: 38px;
+    color: #111827;
+    margin-bottom: 18px;
+    font-weight: 700;
+}
+
+.assistente-descricao {
+    font-size: 17px;
+    line-height: 1.6;
+    color: #6b7280;
+    margin-bottom: 30px;
+}
+
+/* =========================
+   Caixa ajuda
+========================= */
+
+.assistente-ajuda {
+    background: #eef2ff;
+    border-radius: 14px;
+    padding: 24px;
+    text-align: left;
+    margin-bottom: 28px;
+}
+
+.assistente-ajuda p {
+    font-size: 17px;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 18px;
+}
+
+.assistente-ajuda ul {
+    list-style: none;
+    padding: 0;
+}
+
+.assistente-ajuda li {
+    margin-bottom: 14px;
+    color: #4b5563;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* =========================
+   Dica
+========================= */
+
+.assistente-dica {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 28px;
+}
+
+/* =========================
+   Botão
+========================= */
+
+.btn-comecar {
+    background: linear-gradient(135deg, #6d28d9, #7c3aed);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-comecar:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+}

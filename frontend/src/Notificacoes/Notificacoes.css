@@ -1,0 +1,145 @@
+.notificacoes-container {
+    padding: 32px;
+    background: #f8f9fc;
+    min-height: 100vh;
+}
+
+.notificacoes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+}
+
+.notificacoes-header h1 {
+    font-size: 38px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 6px;
+}
+
+.notificacoes-header p {
+    font-size: 15px;
+    color: #6b7280;
+}
+
+.btn-limpar {
+    height: 42px;
+    padding: 0 18px;
+    border-radius: 10px;
+    border: 1px solid #ef4444;
+    background: white;
+    color: #ef4444;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-limpar:hover {
+    background: #fff5f5;
+}
+
+.notificacoes-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.notificacao-card {
+    background: white;
+    border-radius: 18px;
+    padding: 22px 24px;
+    border: 1px solid #e5e7eb;
+    border-left: 4px solid #6d28d9;
+    transition: 0.2s;
+}
+
+.notificacao-card:hover {
+    transform: translateY(-1px);
+}
+
+.notificacao-card.sucesso {
+    border-left-color: #22c55e;
+}
+
+.notificacao-card.alerta {
+    border-left-color: #facc15;
+}
+
+.notificacao-card.info {
+    border-left-color: #6d28d9;
+}
+
+.notificacao-card.erro {
+    border-left-color: #ef4444;
+}
+
+.notificacao-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.notificacao-topo h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.notificacao-topo span {
+    font-size: 14px;
+    color: #9ca3af;
+}
+
+.notificacao-card p {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #6b7280;
+    margin-bottom: 18px;
+}
+
+.notificacao-acoes {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.notificacao-acoes button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.notificacao-acoes button:first-child {
+    color: #111827;
+}
+
+.notificacao-acoes button:first-child:hover {
+    color: #6d28d9;
+}
+
+.notificacao-acoes button:last-child {
+    color: #ef4444;
+}
+
+.notificacao-acoes button:last-child:hover {
+    opacity: 0.8;
+}
+
+.notificacao-card.lida {
+    opacity: 0.75;
+}
+
+.sem-notificacoes {
+    background: white;
+    border-radius: 18px;
+    padding: 40px;
+    text-align: center;
+    color: #6b7280;
+    border: 1px solid #e5e7eb;
+}
