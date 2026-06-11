@@ -63,6 +63,11 @@ public class IAService {
 
     public String perguntarIA(String mensagem, List<Map<String, String>> historico) {
 
+        // Log de diagnóstico — confirma se a chave está sendo lida
+        boolean chaveVazia = chaveApi == null || chaveApi.isBlank();
+        System.out.println("[IA] Chamada recebida. Chave configurada: " + !chaveVazia
+                + (chaveVazia ? "" : " (primeiros 6 chars: " + chaveApi.substring(0, Math.min(6, chaveApi.length())) + "...)"));
+
         try {
 
             RestTemplate restTemplate = new RestTemplate();
@@ -134,12 +139,16 @@ public class IAService {
 
             HttpEntity<Map<String, Object>> entidade = new HttpEntity<>(corpo, cabecalhos);
 
+            System.out.println("[IA] Enviando requisição para o Gemini...");
+
             ResponseEntity<Map> resposta = restTemplate.exchange(
                     url,
                     HttpMethod.POST,
                     entidade,
                     Map.class
             );
+
+            System.out.println("[IA] Resposta recebida do Gemini: HTTP " + resposta.getStatusCode());
 
             // Extrair o texto da resposta
             Map<String, Object> corpoResposta = resposta.getBody();
@@ -164,17 +173,19 @@ public class IAService {
                 }
             }
 
+            System.out.println("[IA] Resposta do Gemini veio vazia ou sem candidatos.");
+
             return "Não consegui gerar uma resposta. Tente novamente.";
 
         } catch (HttpClientErrorException e) {
 
-            System.err.println("Erro HTTP Gemini: " + e.getStatusCode() + " - " + e.getResponseBodyAsString());
+            System.out.println("[IA] Erro HTTP Gemini: " + e.getStatusCode() + " - " + e.getResponseBodyAsString());
 
             return "Erro ao conectar com a IA. Tente novamente em instantes.";
 
         } catch (Exception e) {
 
-            System.err.println("Erro IA Gemini: " + e.getClass().getName() + " - " + e.getMessage());
+            System.out.println("[IA] Erro IA Gemini: " + e.getClass().getName() + " - " + e.getMessage());
             e.printStackTrace();
 
             return "Erro ao conectar com a IA. Tente novamente em instantes.";
