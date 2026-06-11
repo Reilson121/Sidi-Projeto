@@ -13,6 +13,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 @Service
@@ -26,7 +27,7 @@ public class IAService {
             Sua função é ajudar visitantes a preencherem o formulário de cadastro de forma clara e objetiva.
 
             INFORMAÇÕES DO SISTEMA:
-            - O formulário tem 5 etapas: Dados Pessoais, Dados da Visita, Informações Adicionais, Aceite LGPD e Revisão
+            - O formulário tem 4 etapas: Dados Pessoais, Dados da Visita, Informações Adicionais e Revisão
 
             CAMPOS OBRIGATÓRIOS:
             - Nome completo
@@ -74,7 +75,7 @@ public class IAService {
             Map<String, Object> corpo = new HashMap<>();
             List<Map<String, Object>> conteudos = new ArrayList<>();
 
-            // Instrução do sistema como primeira mensagem
+            // Instrução do sistema como primeira mensagem do usuário
             Map<String, Object> instrucaoSistema = new HashMap<>();
             instrucaoSistema.put("role", "user");
             instrucaoSistema.put("parts", List.of(Map.of("text", PROMPT_SISTEMA)));
@@ -86,7 +87,7 @@ public class IAService {
             confirmacaoSistema.put("parts", List.of(Map.of("text", "Entendido! Estou pronto para ajudar os visitantes a preencherem o formulário do VisitControl.")));
             conteudos.add(confirmacaoSistema);
 
-            // Histórico da conversa
+            // Histórico da conversa — garante alternância user/model e ignora boas-vindas
             if (historico != null) {
 
                 for (Map<String, String> item : historico) {
@@ -94,13 +95,23 @@ public class IAService {
                     String papel = item.get("papel");
                     String texto = item.get("texto");
 
-                    if (papel == null || texto == null) continue;
+                    if (papel == null || texto == null || texto.isBlank()) continue;
 
                     // Ignora a mensagem de boas-vindas inicial do assistente
                     if (papel.equals("assistente") && texto.startsWith("Olá! Sou a assistente")) continue;
 
+                    String roleGemini = papel.equals("usuario") ? "user" : "model";
+
+                    // Garante que não há duas mensagens seguidas do mesmo papel
+                    if (!conteudos.isEmpty()) {
+
+                        Map<String, Object> ultima = conteudos.get(conteudos.size() - 1);
+
+                        if (roleGemini.equals(ultima.get("role"))) continue;
+                    }
+
                     Map<String, Object> entrada = new HashMap<>();
-                    entrada.put("role", papel.equals("usuario") ? "user" : "model");
+                    entrada.put("role", roleGemini);
                     entrada.put("parts", List.of(Map.of("text", texto)));
 
                     conteudos.add(entrada);
@@ -154,6 +165,12 @@ public class IAService {
             }
 
             return "Não consegui gerar uma resposta. Tente novamente.";
+
+        } catch (HttpClientErrorException e) {
+
+            System.err.println("Erro HTTP Gemini: " + e.getStatusCode() + " - " + e.getResponseBodyAsString());
+
+            return "Erro ao conectar com a IA. Tente novamente em instantes.";
 
         } catch (Exception e) {
 
